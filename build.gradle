@@ -26,7 +26,7 @@ base {
 }
 
 java {
-	toolchain.languageVersion = JavaLanguageVersion.of 17
+	toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 minecraft {
@@ -70,11 +70,11 @@ sourceSets.main.resources {
 }
 
 repositories {
-	flatDir {
-		dirs 'rtOnly-mod'
-	}
-	flatDir {
-		dirs 'impl-mod'
+	maven {
+		url "https://cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
 	}
 }
 
@@ -82,8 +82,11 @@ dependencies {
 	minecraft "net.minecraftforge:forge:1.20.1-47.4.20"
 	annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 	
-	runtimeOnly fg.deobf(fileTree(dir: 'rtOnly-mod', include: ['*.jar']))
-	implementation fg.deobf(fileTree(dir: 'impl-mod', include: ['*.jar']))
+	implementation fg.deobf( "curse.maven:cold-sweat-506194:8907301" )
+	
+	runtimeOnly fg.deobf( "curse.maven:embeddium-908741:5681725" )
+	runtimeOnly fg.deobf( "curse.maven:oculus-581495:6020952" )
+	runtimeOnly fg.deobf( "curse.maven:euphoria-patches-915902:8791862" )
 }
 
 tasks.named('processResources', ProcessResources).configure {
@@ -91,6 +94,9 @@ tasks.named('processResources', ProcessResources).configure {
 		minecraft_version_range: minecraft_version_range,
 		forge_version_range: forge_version_range,
 		loader_version_range: loader_version_range,
+		
+		coldsweat_version_range: coldsweat_version_range,
+		
 		mod_id: mod_id,
 		mod_name: mod_name,
 		mod_license: mod_license,

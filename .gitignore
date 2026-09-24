@@ -20,3 +20,5 @@ hs_err_pid*
 # Common working directory
 run
 /runtime-mod/
+/graph/
+/rtOnly-mod/
