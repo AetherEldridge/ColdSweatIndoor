@@ -14,14 +14,14 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 @Mod(
-	value = MrozbirekGlueMod.MOD_ID
+	value = ColdSweatIndoor.MOD_ID
 )
-public class MrozbirekGlueMod
+public class ColdSweatIndoor
 {
 	public static final String MOD_ID = "coldsweatindoor";
 	private static final Logger LOGGER = LogUtils.getLogger( );
 	
-	public MrozbirekGlueMod( @NotNull FMLJavaModLoadingContext ctx )
+	public ColdSweatIndoor( @NotNull FMLJavaModLoadingContext ctx )
 	{
 		IEventBus modEventBus = ctx.getModEventBus( );
 		
