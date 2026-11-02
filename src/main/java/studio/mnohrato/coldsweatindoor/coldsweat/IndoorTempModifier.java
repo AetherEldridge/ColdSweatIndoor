@@ -1,4 +1,4 @@
-package studio.mnohrato.mrozbirekgluemod.coldsweat;
+package studio.mnohrato.coldsweatindoor.coldsweat;
 
 import com.momosoftworks.coldsweat.api.temperature.modifier.TempModifier;
 import com.momosoftworks.coldsweat.api.util.Temperature;
@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
-import studio.mnohrato.mrozbirekgluemod.Config;
+import studio.mnohrato.coldsweatindoor.Config;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -66,7 +66,8 @@ public class IndoorTempModifier extends TempModifier
 				} );
 				volume.updateAndGet( Math::sqrt );
 				
-				indoorness.updateAndGet( ( v ) -> v + volume.get( ) / Math.sqrt( i ) );
+				int finalI = i;
+				indoorness.updateAndGet( ( v ) -> v + volume.get( ) / Math.sqrt( finalI ) );
 				blocks.getAndIncrement( );
 				if( volume.get( ) >= 1.0 ) break;
 			}

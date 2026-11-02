@@ -1,4 +1,4 @@
-package studio.mnohrato.mrozbirekgluemod.event;
+package studio.mnohrato.coldsweatindoor.event;
 
 import com.momosoftworks.coldsweat.api.util.Temperature;
 import com.momosoftworks.coldsweat.api.util.placement.Placement;
@@ -7,8 +7,8 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
-import studio.mnohrato.mrozbirekgluemod.MrozbirekGlueMod;
-import studio.mnohrato.mrozbirekgluemod.coldsweat.IndoorTempModifier;
+import studio.mnohrato.coldsweatindoor.MrozbirekGlueMod;
+import studio.mnohrato.coldsweatindoor.coldsweat.IndoorTempModifier;
 
 @Mod.EventBusSubscriber(
 	modid = MrozbirekGlueMod.MOD_ID,

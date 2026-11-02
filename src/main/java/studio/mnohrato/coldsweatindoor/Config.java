@@ -1,4 +1,4 @@
-package studio.mnohrato.mrozbirekgluemod;
+package studio.mnohrato.coldsweatindoor;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

@@ -1,4 +1,4 @@
-//package studio.mnohrato.mrozbirekgluemod.event;
+//package studio.mnohrato.coldsweatindoor.event;
 //
 //import net.minecraft.core.BlockPos;
 //import net.minecraft.server.level.ServerLevel;
@@ -8,7 +8,7 @@
 //import net.minecraftforge.event.TickEvent;
 //import net.minecraftforge.eventbus.api.SubscribeEvent;
 //import net.minecraftforge.fml.common.Mod;
-//import studio.mnohrato.mrozbirekgluemod.MrozbirekGlueMod;
+//import studio.mnohrato.coldsweatindoor.MrozbirekGlueMod;
 //
 //import java.util.List;
 //import java.util.concurrent.atomic.AtomicInteger;
