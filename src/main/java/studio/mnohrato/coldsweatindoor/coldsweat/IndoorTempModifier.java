@@ -119,17 +119,18 @@ public class IndoorTempModifier extends TempModifier
 	{
 		if( state.isAir( ) ) return 0.0;
 		
-		if( state.is( BlockTags.LEAVES ) ) return 0.35;
-		if( state.is( BlockTags.IMPERMEABLE ) || state.getBlock( ) instanceof HalfTransparentBlock || state.getBlock( ) instanceof IronBarsBlock ) return 0.6;
+		if( state.is( BlockTags.LEAVES ) ) return Config.solidityLeaves;
+		if( state.is( BlockTags.IMPERMEABLE ) || state.getBlock( ) instanceof HalfTransparentBlock || state.getBlock( ) instanceof IronBarsBlock )
+			return Config.solidityImpermeable;
 		
-		if( state.isSolidRender( level, pos ) ) return 1.0;
-		if( state.canOcclude( ) ) return 0.75;
-		if( state.isCollisionShapeFullBlock( level, pos ) ) return 0.65;
-		if( state.blocksMotion( ) ) return 0.45;
+		if( state.isSolidRender( level, pos ) ) return Config.soliditySolidRender;
+		if( state.canOcclude( ) ) return Config.solidityCanOcclude;
+		if( state.isCollisionShapeFullBlock( level, pos ) ) return Config.solidityFullCollision;
+		if( state.blocksMotion( ) ) return Config.solidityBlocksMotion;
 		
-		if( !state.getFluidState( ).isEmpty( ) ) return 0.12;
+		if( !state.getFluidState( ).isEmpty( ) ) return Config.solidityFluid;
 		
-		return 0.0;
+		return Config.solidityDefault;
 	}
 	
 	private static double @NotNull [][] createDirections( )
@@ -146,11 +147,7 @@ public class IndoorTempModifier extends TempModifier
 		for( int i = 0; i < 8; i++ )
 		{
 			double angle = Math.toRadians( i * 45.0 + 22.5 );
-			directions[ 8 + i ] = new double[]{
-				Math.cos( angle ) * diagonal,
-				diagonal,
-				Math.sin( angle ) * diagonal
-			};
+			directions[ 8 + i ] = new double[]{ Math.cos( angle ) * diagonal, diagonal, Math.sin( angle ) * diagonal };
 		}
 		
 		directions[ 16 ] = new double[]{ 0.0, 1.0, 0.0 };
