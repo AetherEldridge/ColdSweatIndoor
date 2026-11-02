@@ -23,16 +23,7 @@ public class ColdSweatIndoor
 	
 	public ColdSweatIndoor( @NotNull FMLJavaModLoadingContext ctx )
 	{
-		IEventBus modEventBus = ctx.getModEventBus( );
-		
-		MinecraftForge.EVENT_BUS.register( this );
-		
 		ctx.registerConfig( ModConfig.Type.COMMON, Config.SPEC( ) );
-	}
-	
-	@SubscribeEvent
-	public void commonSetup( FMLCommonSetupEvent fmlcs )
-	{
 	}
 	
 	@NotNull

@@ -22,7 +22,6 @@ public class AddTempModifierHandler
 		if( event.getEntity( ) instanceof LivingEntity living && !event.getLevel( ).isClientSide )
 		{
 			if( Temperature.getModifier( living, Temperature.Trait.WORLD, IndoorTempModifier.class ).isPresent( ) ) return;
-			
 			Temperature.addModifier( living, new IndoorTempModifier( ), Temperature.Trait.WORLD, Placement.LAST );
 		}
 	}

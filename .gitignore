@@ -18,7 +18,6 @@ out/
 hs_err_pid*
 
 # Common working directory
-run
-/runtime-mod/
-/draft/
-/rtOnly-mod/
+/run/
+/ref/
+/run-data/
