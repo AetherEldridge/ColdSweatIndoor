@@ -38,7 +38,7 @@ public class IndoorTempModifier extends TempModifier
 		// Evaluate the scan once per update instead of on every temperature apply.
 		double indoorness = indoorness( entity );
 		double neutralTemp = Temperature.getNeutralWorldTemp( entity );
-		return ( temp ) -> temp - ( temp - neutralTemp ) * indoorness;
+		return ( temp ) -> temp - ( temp - neutralTemp ) * indoorness * Config.maxNeutral;
 	}
 	
 	/**

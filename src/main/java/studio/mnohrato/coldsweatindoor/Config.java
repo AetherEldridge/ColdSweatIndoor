@@ -12,6 +12,7 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 public class Config
 {
 	private static final ForgeConfigSpec.Builder BUILDER;
+	private static final ForgeConfigSpec.DoubleValue MAX_NEUTRAL;
 	private static final ForgeConfigSpec.DoubleValue MAX_DISTANCE;
 	private static final ForgeConfigSpec.DoubleValue STEP;
 	private static final ForgeConfigSpec.IntValue UPDATE_INTERVAL;
@@ -30,6 +31,12 @@ public class Config
 	static
 	{
 		BUILDER = new ForgeConfigSpec.Builder( );
+		MAX_NEUTRAL = BUILDER.comment(
+				"The maximum effect comes from staying indoors at a neutral temperature, with a range from 0 to 1, ",
+				"0 means completely disabled ",
+				"1 means the environment can be perfect to fully return to a neutral value."
+			)
+			.defineInRange( "max_neutral", 0.5d, 0, 1 );
 		MAX_DISTANCE = BUILDER
 			.comment( "How far, in blocks, a sample ray looks for cover. Beyond this the world is treated as open." )
 			.defineInRange( "max_distance", 14d, 0, Double.MAX_VALUE );
@@ -68,6 +75,7 @@ public class Config
 		SPEC = BUILDER.build( );
 	}
 	
+	public static double maxNeutral = 0.5d;
 	public static double maxDistance = 14d;
 	public static double step = 0.75d;
 	public static int updateInterval = 2;
@@ -89,6 +97,7 @@ public class Config
 	@SubscribeEvent
 	public static void onLoad( ModConfigEvent event )
 	{
+		maxNeutral = MAX_NEUTRAL.get( );
 		maxDistance = MAX_DISTANCE.get( );
 		step = STEP.get( );
 		updateInterval = UPDATE_INTERVAL.get( );
